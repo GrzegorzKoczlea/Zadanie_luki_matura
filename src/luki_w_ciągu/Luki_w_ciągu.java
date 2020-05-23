@@ -5,6 +5,8 @@
  */
 package luki_w_ciągu;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -21,6 +23,35 @@ public class Luki_w_ciągu {
                 tablica[i] = generator.nextInt(20);
                     }
     }
+    
+    public static void Znajdz_najwieksza_luke_lista (int [] tablica){
+        
+        List luki = new ArrayList();
+        
+        for (int i = 0; i < tablica.length - 1; i++) {
+            if (tablica[i] > tablica[i + 1]) {
+               luki.add(tablica[i] - tablica[i + 1]);
+            }else{
+                luki.add(tablica[i + 1] - tablica[i]);
+            }
+        }
+        
+//        for (int i = 0; i < luki.size(); i++) {
+//            System.out.println(luki.get(i));
+//        }
+        
+        int najwieksza_luka = 0;
+        
+        for (int i = 0; i < luki.size() - 1; i++) {
+            if((int)luki.get(i) > (int)luki.get(i+1)){
+                najwieksza_luka = (int)luki.get(i);
+            }else{
+                najwieksza_luka = (int)luki.get(i + 1);
+            }
+            
+        }
+                System.out.println("Największa luka: " + najwieksza_luka);
+            }
     
     public static void Wypisz_tablice(int[] tablica)
     {
@@ -98,9 +129,10 @@ public class Luki_w_ciągu {
         int [] Wartosci_dane_txt_4 = new int [10] ;
         Generate(Wartosci_dane_txt_4);
         Wypisz_tablice(Wartosci_dane_txt_4);
-        Znajdz_najwieksza_luke(Wartosci_dane_txt_4);
-        Znajdz_najmniejsza_luke(Wartosci_dane_txt_4);
-    
+//                Znajdz_najwieksza_luke(Wartosci_dane_txt_4);
+//                Znajdz_najmniejsza_luke(Wartosci_dane_txt_4);
+        
+        Znajdz_najwieksza_luke_lista(Wartosci_dane_txt_4);
     }
     
 }
